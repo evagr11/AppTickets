@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_list"
+        android:icon="@android:drawable/alert_dark_frame"
+        android:title="Tickets" />
+    <item
+        android:id="@+id/nav_redaccion"
+        android:icon="@android:drawable/alert_light_frame"
+        android:title="Crear" />
+</menu>
