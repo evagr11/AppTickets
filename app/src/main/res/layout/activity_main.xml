@@ -9,7 +9,18 @@
 
     <!-- Contenedor de fragmentos -->
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container"
+        android:id="@+id/fragment_container_landing"
+        android:name="com.example.apptickets.Landing"
+        android:layout_width="401dp"
+        android:layout_height="729dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container_tickets"
         android:name="androidx.fragment.app.Fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"

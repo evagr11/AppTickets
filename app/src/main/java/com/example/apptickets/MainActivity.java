@@ -11,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Landing fragmentLanding;
     CrearTickets fragmentCrear;
     ListTickets fragmentList;
     BottomNavigationView bottomNavigationView;
@@ -23,10 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentCrear = new CrearTickets();
         fragmentList = new ListTickets();
+        fragmentLanding = new Landing();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fragment_container, fragmentList);
+        transaction.replace(R.id.fragment_container_landing, fragmentLanding);
         transaction.commit();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -34,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction navTransaction = getSupportFragmentManager().beginTransaction();
 
             if (item.getItemId() == R.id.nav_list) {
-                navTransaction.replace(R.id.fragment_container, fragmentList);
+                navTransaction.replace(R.id.fragment_container_tickets, fragmentList);
             } else if (item.getItemId() == R.id.nav_redaccion) {
-                navTransaction.replace(R.id.fragment_container, fragmentCrear);
+                navTransaction.replace(R.id.fragment_container_tickets, fragmentCrear);
             }
 
             navTransaction.commit();
