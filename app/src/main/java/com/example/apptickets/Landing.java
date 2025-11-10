@@ -25,5 +25,11 @@ public class Landing extends Fragment {
         return inflater.inflate(R.layout.fragment_landing, container, false);
 
 
+        btnAcceder = findViewById(R.id.btnAcceder);
+
+        btnAcceder.setOnClickListener(v -> {
+
+        });
+
     }
 }

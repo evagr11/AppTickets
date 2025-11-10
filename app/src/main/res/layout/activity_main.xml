@@ -8,16 +8,6 @@
     tools:context=".MainActivity">
 
     <!-- Contenedor de fragmentos -->
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container_landing"
-        android:name="com.example.apptickets.Landing"
-        android:layout_width="401dp"
-        android:layout_height="729dp"
-        android:background="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_tickets"
@@ -41,5 +31,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_nav_menu" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container_landing"
+        android:name="com.example.apptickets.Landing"
+        android:layout_width="423dp"
+        android:layout_height="894dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
