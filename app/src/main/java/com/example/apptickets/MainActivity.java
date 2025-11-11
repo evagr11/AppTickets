@@ -1,6 +1,7 @@
 package com.example.apptickets;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,17 +29,20 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fragment_container_landing, fragmentLanding);
+        transaction.replace(R.id.fragmentContainerTickets, fragmentList);
         transaction.commit();
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView = findViewById(R.id.menuNavegacion);
+
+        bottomNavigationView.setVisibility(View.GONE);
+
         bottomNavigationView.setOnItemSelectedListener(item -> {
             FragmentTransaction navTransaction = getSupportFragmentManager().beginTransaction();
 
             if (item.getItemId() == R.id.nav_list) {
-                navTransaction.replace(R.id.fragment_container_tickets, fragmentList);
+                navTransaction.replace(R.id.fragmentContainerTickets, fragmentList);
             } else if (item.getItemId() == R.id.nav_redaccion) {
-                navTransaction.replace(R.id.fragment_container_tickets, fragmentCrear);
+                navTransaction.replace(R.id.fragmentContainerTickets, fragmentCrear);
             }
 
             navTransaction.commit();
