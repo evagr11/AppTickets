@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.menuNavegacion);
 
-        bottomNavigationView.setVisibility(View.GONE);
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
             FragmentTransaction navTransaction = getSupportFragmentManager().beginTransaction();
 
