@@ -10,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 public class ListTickets extends Fragment {
 
+    private ChipGroup chipGroup;
     public ListTickets() {
         // Required empty public constructor
     }
