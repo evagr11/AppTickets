@@ -15,9 +15,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Landing extends Fragment {
 
-
-
-
     public Landing() {
         // Required empty public constructor
     }

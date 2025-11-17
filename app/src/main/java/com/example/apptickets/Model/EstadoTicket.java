@@ -4,6 +4,6 @@ public enum EstadoTicket {
     NUEVO,
     ABIERTO,
     EN_PROCESO,
-    RESULTADO,
+    RESUELTO,
     CERRADO
 }
