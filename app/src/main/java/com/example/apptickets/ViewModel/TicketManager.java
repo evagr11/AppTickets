@@ -1,10 +1,13 @@
-package com.example.apptickets;
+package com.example.apptickets.ViewModel;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import com.example.apptickets.Model.Ticket;
 
 public class TicketManager {
 
@@ -34,6 +37,7 @@ public class TicketManager {
         }catch (IOException e ){
             e.printStackTrace();
         }
+
     }
 
     private int obtenerSiguienteId(File carpeta){

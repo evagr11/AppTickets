@@ -1,13 +1,13 @@
-package com.example.apptickets;
+package com.example.apptickets.Model;
 
 public class Ticket {
     private int id;
     private String titulo;
     private String descripcion;
     private String comoRepetir;
-    private String estado;
+    private EstadoTicket estado;
 
-    public Ticket(int id, String titulo, String descripcion, String comoRepetir, String estado) {
+    public Ticket(int id, String titulo, String descripcion, String comoRepetir, EstadoTicket estado) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -23,7 +23,7 @@ public class Ticket {
 
     public String getDescripcion() { return descripcion; }
 
-    public String getEstado() { return estado; }
+    public EstadoTicket getEstado() { return estado; }
 
     @Override
     public String toString(){
