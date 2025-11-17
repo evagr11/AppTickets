@@ -1,5 +1,7 @@
 package com.example.apptickets.View;
 
+import static java.security.AccessController.getContext;
+
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -8,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.apptickets.R;
+import com.example.apptickets.ViewModel.TicketManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        TicketManager manager = new TicketManager(this);
+
+        // Borrar todos los tickets
+        // manager.borrarTickets();
+
+        // 5 tickets
+        //manager.crearTicketsEjemplo();
 
         fragmentCrear = new CrearTickets();
         fragmentList = new ListTickets();

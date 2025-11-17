@@ -36,41 +36,43 @@ public class ListTickets extends Fragment {
 
         ArrayList<Ticket> listaTickets = new ArrayList<>();
 
-        for (int i = 0; i < archivos.length; i++) {
-            File archivo = archivos[i];
-            try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-                String linea = br.readLine();
-                String[] partes = linea.split("\\|");
+        if (archivos != null){
+            for (int i = 0; i < archivos.length; i++) {
+                File archivo = archivos[i];
+                try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+                    String linea = br.readLine();
+                    String[] partes = linea.split("\\|");
 
-                String titulo = partes[0].trim();
-                String descripcion = partes[1].trim();
-                String comoRepetir = partes[2].trim();
-                String estadoStr = partes[3].trim();
-                int id = Integer.parseInt(partes[4].trim());
+                    String titulo = partes[0].trim();
+                    String descripcion = partes[1].trim();
+                    String comoRepetir = partes[2].trim();
+                    String estadoStr = partes[3].trim();
+                    int id = Integer.parseInt(partes[4].trim());
 
-                EstadoTicket estado;
-                switch (estadoStr.toUpperCase()) {
-                    case "NUEVO":
-                        estado = EstadoTicket.NUEVO;
-                        break;
-                    case "ABIERTO":
-                        estado = EstadoTicket.ABIERTO;
-                        break;
-                    case "EN_PROCESO":
-                        estado = EstadoTicket.EN_PROCESO;
-                        break;
-                    case "RESUELTO":
-                        estado = EstadoTicket.RESUELTO;
-                        break;
-                    default:
-                        estado = EstadoTicket.CERRADO;
-                        break;
+                    EstadoTicket estado;
+                    switch (estadoStr.toUpperCase()) {
+                        case "NUEVO":
+                            estado = EstadoTicket.NUEVO;
+                            break;
+                        case "ABIERTO":
+                            estado = EstadoTicket.ABIERTO;
+                            break;
+                        case "EN_PROCESO":
+                            estado = EstadoTicket.EN_PROCESO;
+                            break;
+                        case "RESUELTO":
+                            estado = EstadoTicket.RESUELTO;
+                            break;
+                        default:
+                            estado = EstadoTicket.CERRADO;
+                            break;
+                    }
+
+                    listaTickets.add(new Ticket(id, titulo, descripcion, comoRepetir, estado));
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-                listaTickets.add(new Ticket(id, titulo, descripcion, comoRepetir, estado));
-
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
 
