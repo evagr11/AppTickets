@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.nav_list) {
                 navTransaction.replace(R.id.fragmentContainerTickets, fragmentList);
             } else if (item.getItemId() == R.id.nav_redaccion) {
-                navTransaction.replace(R.id.fragmentContainerTickets, fragmentCrear);
+                navTransaction.replace(R.id.fragmentContainerTickets, new CrearTickets());
             }
 
             navTransaction.commit();

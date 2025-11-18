@@ -41,6 +41,21 @@ public class TicketManager {
 
     }
 
+    public void actualizarTicket(Ticket ticket){
+        try{
+            File carpeta = new File(ct.getFilesDir(), "TICKETS");
+            String nombreArchivo = "ticket" + ticket.getId() + ".txt";
+            File archivoTicket = new File(carpeta, nombreArchivo);
+
+            FileWriter writer = new FileWriter(archivoTicket);
+            writer.write(ticket.toString());
+            writer.close();
+        }catch (IOException e ){
+            e.printStackTrace();
+        }
+    }
+
+
     private int obtenerSiguienteId(File carpeta){
         File[] archivos = carpeta.listFiles();
         if(archivos.length == 0) return 1;

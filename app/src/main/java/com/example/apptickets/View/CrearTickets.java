@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.apptickets.R;
@@ -24,7 +25,10 @@ public class CrearTickets extends Fragment {
     private EditText txtTituloEdit, txtDescripcionEdit, txtComoRepetirEdit;
     private Spinner spinnerEstado;
     private Button btnEnviar;
+    private TextView txtEstado;
 
+    private int ticketId = 0;
+    private boolean esEdicion = false;
 
     public CrearTickets() {
         // Required empty public constructor
@@ -40,6 +44,7 @@ public class CrearTickets extends Fragment {
         txtComoRepetirEdit = rootView.findViewById(R.id.txtComoRepetirEdit);
         spinnerEstado = rootView.findViewById(R.id.spinnerEstado);
         btnEnviar = rootView.findViewById(R.id.btnEnviar);
+        txtEstado = rootView.findViewById(R.id.txtEstado);
 
         ArrayAdapter<EstadoTicket> adapter = new ArrayAdapter<>(
                 requireContext(),
@@ -48,6 +53,19 @@ public class CrearTickets extends Fragment {
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerEstado.setAdapter(adapter);
+
+        if (getArguments() != null) {
+            esEdicion = true;
+            txtEstado.setVisibility(View.VISIBLE);
+            spinnerEstado.setVisibility(View.VISIBLE);
+            txtTituloEdit.setText(getArguments().getString("titulo", ""));
+            txtDescripcionEdit.setText(getArguments().getString("descripcion", ""));
+            txtComoRepetirEdit.setText(getArguments().getString("comoRepetir", ""));
+            String estadoStr = getArguments().getString("estado", EstadoTicket.NUEVO.name());
+            spinnerEstado.setSelection(EstadoTicket.valueOf(estadoStr).ordinal());
+
+            ticketId = getArguments().getInt("id", 0);
+        }
 
         btnEnviar.setOnClickListener(v -> guardarTicket());
 
@@ -60,21 +78,30 @@ public class CrearTickets extends Fragment {
         String titulo = txtTituloEdit.getText().toString().trim();
         String descripcion = txtDescripcionEdit.getText().toString().trim();
         String comoRepetir = txtComoRepetirEdit.getText().toString().trim();
-        EstadoTicket estado = (EstadoTicket) spinnerEstado.getSelectedItem();
 
         if(titulo.isEmpty() || descripcion.isEmpty() || comoRepetir.isEmpty()){
             Toast.makeText(getContext(), "No hay alertas disponibles aún", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        Ticket ticket = new Ticket(0, titulo, descripcion, comoRepetir, estado);
         TicketManager manager = new TicketManager(requireContext());
-        manager.guardarTicket(ticket);
 
-        txtTituloEdit.setText("");
-        txtDescripcionEdit.setText("");
-        txtComoRepetirEdit.setText("");
-        spinnerEstado.setSelection(0);
+        if(esEdicion){
+            EstadoTicket estado = (EstadoTicket) spinnerEstado.getSelectedItem();
+            Ticket ticket = new Ticket(ticketId, titulo, descripcion, comoRepetir, estado);
+            manager.actualizarTicket(ticket);
+        } else {
+            Ticket ticket = new Ticket(0, titulo, descripcion, comoRepetir, EstadoTicket.NUEVO);
+            manager.guardarTicket(ticket);
+
+            // limpiar campos
+            txtTituloEdit.setText("");
+            txtDescripcionEdit.setText("");
+            txtComoRepetirEdit.setText("");
+            spinnerEstado.setSelection(0);
+        }
+
+
 
     }
 }

@@ -82,6 +82,26 @@ public class ListTickets extends Fragment {
         TicketAdapter adapter = new TicketAdapter(getContext(), listaTickets);
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Ticket seleccionado = listaTickets.get(position);
+
+            Bundle args = new Bundle();
+            args.putInt("id", seleccionado.getId());
+            args.putString("titulo", seleccionado.getTitulo());
+            args.putString("descripcion", seleccionado.getDescripcion());
+            args.putString("comoRepetir", seleccionado.getComoRepetir());
+            args.putString("estado", seleccionado.getEstado().name());
+
+            CrearTickets fragmentEditar = new CrearTickets();
+            fragmentEditar.setArguments(args);
+
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainerTickets, fragmentEditar)
+                    .addToBackStack(null)
+                    .commit();
+        });
+
         return rootView;
     }
 }
