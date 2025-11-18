@@ -48,6 +48,8 @@ public class TicketManager {
 
     }
 
+
+
     // Borrar todos los tickets
     public void borrarTickets() {
         File carpeta = new File(ct.getFilesDir(), "TICKETS");

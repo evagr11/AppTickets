@@ -52,6 +52,8 @@ public class CrearTickets extends Fragment {
         btnEnviar.setOnClickListener(v -> guardarTicket());
 
         return rootView;
+
+
     }
 
     private void guardarTicket(){
