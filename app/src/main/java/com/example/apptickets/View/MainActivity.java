@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         TicketManager manager = new TicketManager(this);
 
         // Borrar todos los tickets
-        // manager.borrarTickets();
+        //manager.borrarTickets();
 
         // 5 tickets
         //manager.crearTicketsEjemplo();

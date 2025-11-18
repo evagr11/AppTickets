@@ -50,6 +50,7 @@ public class ListTickets extends Fragment {
                     int id = Integer.parseInt(partes[4].trim());
 
                     EstadoTicket estado;
+
                     switch (estadoStr.toUpperCase()) {
                         case "NUEVO":
                             estado = EstadoTicket.NUEVO;
@@ -63,9 +64,11 @@ public class ListTickets extends Fragment {
                         case "RESUELTO":
                             estado = EstadoTicket.RESUELTO;
                             break;
-                        default:
+                        case "CERRADO":
                             estado = EstadoTicket.CERRADO;
                             break;
+                        default:
+                            throw new Exception("");
                     }
 
                     listaTickets.add(new Ticket(id, titulo, descripcion, comoRepetir, estado));
