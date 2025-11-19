@@ -15,99 +15,92 @@
         android:src="@drawable/recurso_rectangulo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup"
-        android:layout_width="391dp"
-        android:layout_height="50dp"
+    <HorizontalScrollView
+        android:layout_width="373dp"
+        android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69">
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.74">
 
-        <HorizontalScrollView
-            android:layout_width="374dp"
-            android:layout_height="50dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
 
-            <LinearLayout
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipNuevo"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:orientation="horizontal">
+                android:checkable="true"
+                android:text="Nuevo"
+                app:chipBackgroundColor="#FFFFFF" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipNuevo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:checkable="true"
-                    android:text="Nuevo"
-                    app:chipBackgroundColor="#FFFFFF" />
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAbierto"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:checkable="true"
+                android:text="Abierto"
+                app:chipBackgroundColor="#FFFFFF" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipAbierto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:checkable="true"
-                    android:text="Abierto"
-                    app:chipBackgroundColor="#FFFFFF" />
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipProceso"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:checkable="true"
+                android:text="En Proceso"
+                app:chipBackgroundColor="#FFFFFF" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipProceso"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:checkable="true"
-                    android:text="En Proceso"
-                    app:chipBackgroundColor="#FFFFFF" />
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipResuelto"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:checkable="true"
+                android:text="Resuelto"
+                app:chipBackgroundColor="#FFFFFF" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipResultado"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:checkable="true"
-                    android:text="Resultado"
-                    app:chipBackgroundColor="#FFFFFF" />
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCerrado"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:checkable="true"
+                android:text="Cerrado"
+                app:chipBackgroundColor="#FFFFFF" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipCerrado"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:checkable="true"
-                    android:text="Cerrado"
-                    app:chipBackgroundColor="#FFFFFF" />
-
-            </LinearLayout>
-        </HorizontalScrollView>
-
-    </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="410dp"
-        android:layout_height="723dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
