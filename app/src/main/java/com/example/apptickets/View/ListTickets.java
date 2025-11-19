@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.apptickets.Model.EstadoTicket;
 import com.example.apptickets.Model.Ticket;
@@ -21,6 +22,7 @@ public class ListTickets extends Fragment {
 
     private Chip chipNuevo, chipAbierto, chipProceso, chipResuelto, chipCerrado;
     private ListView listView;
+    private TextView noTickets;
 
     private ArrayList<Ticket> listaTickets = new ArrayList<>();
     private ArrayList<Ticket> listaFiltrada = new ArrayList<>();
@@ -34,12 +36,12 @@ public class ListTickets extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_list_tickets, container, false);
 
-        // --- Referencias a chips ---
         chipNuevo = rootView.findViewById(R.id.chipNuevo);
         chipAbierto = rootView.findViewById(R.id.chipAbierto);
         chipProceso = rootView.findViewById(R.id.chipProceso);
         chipResuelto = rootView.findViewById(R.id.chipResuelto);
         chipCerrado = rootView.findViewById(R.id.chipCerrado);
+        noTickets = rootView.findViewById(R.id.textView3);
 
         listView = rootView.findViewById(R.id.listView);
 
@@ -80,6 +82,7 @@ public class ListTickets extends Fragment {
 
     private void cargarTicketsDesdeArchivos() {
         listaTickets.clear();
+        listaFiltrada.clear();
 
         File carpeta = new File(getContext().getFilesDir(), "TICKETS");
         File[] archivos = carpeta.listFiles();
@@ -150,6 +153,12 @@ public class ListTickets extends Fragment {
 
                 listaFiltrada.add(listaTickets.get(i));
             }
+        }
+
+        if(listaFiltrada.isEmpty()){
+            noTickets.setVisibility(View.VISIBLE);
+        } else{
+            noTickets.setVisibility(View.GONE);
         }
 
         adapter.notifyDataSetChanged();
