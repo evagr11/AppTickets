@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -55,8 +54,7 @@ public class CrearTickets extends Fragment {
             txtComoRepetirEdit.setText(getArguments().getString("comoRepetir", ""));
             String estadoStr = getArguments().getString("estado", EstadoTicket.NUEVO.name());
 
-            int index = EstadoTicket.valueOf(estadoStr).ordinal();
-            spinnerEstado.setSelection(index);
+            spinnerEstado.setSelection(EstadoTicket.valueOf(estadoStr).ordinal());
             ticketId = getArguments().getInt("id", 0);
         }
 
@@ -80,8 +78,7 @@ public class CrearTickets extends Fragment {
         TicketManager manager = new TicketManager(requireContext());
 
         if(esEdicion){
-            int pos = spinnerEstado.getSelectedItemPosition();
-            EstadoTicket estado = EstadoTicket.values()[pos];
+            EstadoTicket estado = EstadoTicket.values()[spinnerEstado.getSelectedItemPosition()];
             Ticket ticket = new Ticket(ticketId, titulo, descripcion, comoRepetir, estado);
             manager.actualizarTicket(ticket);
             Toast.makeText(getContext(), "Ticket editado correctamente", Toast.LENGTH_SHORT).show();

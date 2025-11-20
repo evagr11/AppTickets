@@ -28,6 +28,8 @@ public class ListTickets extends Fragment {
     private ArrayList<Ticket> listaFiltrada = new ArrayList<>();
     private TicketAdapter adapter;
 
+    private ListView listView;
+
     public ListTickets() {}
 
     @Override
@@ -42,20 +44,29 @@ public class ListTickets extends Fragment {
         chipResuelto = rootView.findViewById(R.id.chipResuelto);
         chipCerrado = rootView.findViewById(R.id.chipCerrado);
         noTickets = rootView.findViewById(R.id.textView3);
-
-        ListView listView = rootView.findViewById(R.id.listView);
+        listView = rootView.findViewById(R.id.listView);
 
         cargarTicketsDesdeArchivos();
 
-        listaFiltrada.addAll(listaTickets);
-        adapter = new TicketAdapter(getContext(), listaFiltrada);
-        listView.setAdapter(adapter);
+        filtrado();
 
+        edicion();
+
+        return rootView;
+    }
+
+    private void filtrado(){
         chipNuevo.setOnCheckedChangeListener((b, c) -> filtrar());
         chipAbierto.setOnCheckedChangeListener((b, c) -> filtrar());
         chipProceso.setOnCheckedChangeListener((b, c) -> filtrar());
         chipResuelto.setOnCheckedChangeListener((b, c) -> filtrar());
         chipCerrado.setOnCheckedChangeListener((b, c) -> filtrar());
+    }
+
+    private void edicion(){
+        listaFiltrada.addAll(listaTickets);
+        adapter = new TicketAdapter(getContext(), listaFiltrada);
+        listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Ticket seleccionado = listaFiltrada.get(position);
@@ -76,8 +87,6 @@ public class ListTickets extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
-
-        return rootView;
     }
 
     private void cargarTicketsDesdeArchivos() {
@@ -104,23 +113,17 @@ public class ListTickets extends Fragment {
                     EstadoTicket estado;
 
                     switch (estadoStr) {
-                        case "NUEVO":
-                            estado = EstadoTicket.NUEVO;
+                        case "NUEVO": estado = EstadoTicket.NUEVO;
                             break;
-                        case "ABIERTO":
-                            estado = EstadoTicket.ABIERTO;
+                        case "ABIERTO": estado = EstadoTicket.ABIERTO;
                             break;
-                        case "EN_PROCESO":
-                            estado = EstadoTicket.EN_PROCESO;
+                        case "EN_PROCESO": estado = EstadoTicket.EN_PROCESO;
                             break;
-                        case "RESUELTO":
-                            estado = EstadoTicket.RESUELTO;
+                        case "RESUELTO": estado = EstadoTicket.RESUELTO;
                             break;
-                        case "CERRADO":
-                            estado = EstadoTicket.CERRADO;
+                        case "CERRADO": estado = EstadoTicket.CERRADO;
                             break;
-                        default:
-                            throw new Exception("");
+                        default: throw new Exception("");
                     }
 
                     listaTickets.add(new Ticket(id, titulo, descripcion, comoRepetir, estado));
@@ -164,8 +167,6 @@ public class ListTickets extends Fragment {
             }
 
         }
-
-
 
         if(listaFiltrada.isEmpty()){
             noTickets.setVisibility(View.VISIBLE);
