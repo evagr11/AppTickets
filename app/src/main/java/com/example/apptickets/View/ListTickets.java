@@ -17,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ListTickets extends Fragment {
 
@@ -91,10 +92,8 @@ public class ListTickets extends Fragment {
                 File archivo = archivos[i];
                 try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
                     String linea = br.readLine();
-                    if (linea == null) continue;
 
                     String[] partes = linea.split("\\|");
-                    if (partes.length < 5) continue;
 
                     String titulo = partes[0].trim();
                     String descripcion = partes[1].trim();
@@ -105,12 +104,23 @@ public class ListTickets extends Fragment {
                     EstadoTicket estado;
 
                     switch (estadoStr) {
-                        case "NUEVO": estado = EstadoTicket.NUEVO; break;
-                        case "ABIERTO": estado = EstadoTicket.ABIERTO; break;
-                        case "EN_PROCESO": estado = EstadoTicket.EN_PROCESO; break;
-                        case "RESUELTO": estado = EstadoTicket.RESUELTO; break;
-                        case "CERRADO": estado = EstadoTicket.CERRADO; break;
-                        default: continue;
+                        case "NUEVO":
+                            estado = EstadoTicket.NUEVO;
+                            break;
+                        case "ABIERTO":
+                            estado = EstadoTicket.ABIERTO;
+                            break;
+                        case "EN_PROCESO":
+                            estado = EstadoTicket.EN_PROCESO;
+                            break;
+                        case "RESUELTO":
+                            estado = EstadoTicket.RESUELTO;
+                            break;
+                        case "CERRADO":
+                            estado = EstadoTicket.CERRADO;
+                            break;
+                        default:
+                            throw new Exception("");
                     }
 
                     listaTickets.add(new Ticket(id, titulo, descripcion, comoRepetir, estado));
@@ -119,6 +129,8 @@ public class ListTickets extends Fragment {
                     e.printStackTrace();
                 }
             }
+
+            Collections.reverse(listaTickets);
         }
     }
 
@@ -137,22 +149,23 @@ public class ListTickets extends Fragment {
 
         if (ninguno || todos) {
             listaFiltrada.addAll(listaTickets);
-            adapter.notifyDataSetChanged();
-            return;
-        }
+        } else {
+            for (int i = 0; i < listaTickets.size(); i++) {
+                EstadoTicket estado = listaTickets.get(i).getEstado();
 
-        for (int i = 0; i < listaTickets.size(); i++) {
-            EstadoTicket estado = listaTickets.get(i).getEstado();
+                if ((filtroNuevo && estado == EstadoTicket.NUEVO) ||
+                        (filtroAbierto && estado == EstadoTicket.ABIERTO) ||
+                        (filtroProceso && estado == EstadoTicket.EN_PROCESO) ||
+                        (filtroResuelto && estado == EstadoTicket.RESUELTO) ||
+                        (filtroCerrado && estado == EstadoTicket.CERRADO)) {
 
-            if ((filtroNuevo && estado == EstadoTicket.NUEVO) ||
-                    (filtroAbierto && estado == EstadoTicket.ABIERTO) ||
-                    (filtroProceso && estado == EstadoTicket.EN_PROCESO) ||
-                    (filtroResuelto && estado == EstadoTicket.RESUELTO) ||
-                    (filtroCerrado && estado == EstadoTicket.CERRADO)) {
-
-                listaFiltrada.add(listaTickets.get(i));
+                    listaFiltrada.add(listaTickets.get(i));
+                }
             }
+
         }
+
+
 
         if(listaFiltrada.isEmpty()){
             noTickets.setVisibility(View.VISIBLE);

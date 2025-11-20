@@ -46,14 +46,6 @@ public class CrearTickets extends Fragment {
         btnEnviar = rootView.findViewById(R.id.btnEnviar);
         txtEstado = rootView.findViewById(R.id.txtEstado);
 
-        ArrayAdapter<EstadoTicket> adapter = new ArrayAdapter<>(
-                requireContext(),
-                android.R.layout.simple_spinner_item,
-                EstadoTicket.values()
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerEstado.setAdapter(adapter);
-
         if (getArguments() != null) {
             esEdicion = true;
             txtEstado.setVisibility(View.VISIBLE);
@@ -62,8 +54,9 @@ public class CrearTickets extends Fragment {
             txtDescripcionEdit.setText(getArguments().getString("descripcion", ""));
             txtComoRepetirEdit.setText(getArguments().getString("comoRepetir", ""));
             String estadoStr = getArguments().getString("estado", EstadoTicket.NUEVO.name());
-            spinnerEstado.setSelection(EstadoTicket.valueOf(estadoStr).ordinal());
 
+            int index = EstadoTicket.valueOf(estadoStr).ordinal();
+            spinnerEstado.setSelection(index);
             ticketId = getArguments().getInt("id", 0);
         }
 
@@ -87,12 +80,16 @@ public class CrearTickets extends Fragment {
         TicketManager manager = new TicketManager(requireContext());
 
         if(esEdicion){
-            EstadoTicket estado = (EstadoTicket) spinnerEstado.getSelectedItem();
+            int pos = spinnerEstado.getSelectedItemPosition();
+            EstadoTicket estado = EstadoTicket.values()[pos];
             Ticket ticket = new Ticket(ticketId, titulo, descripcion, comoRepetir, estado);
             manager.actualizarTicket(ticket);
+            Toast.makeText(getContext(), "Ticket editado correctamente", Toast.LENGTH_SHORT).show();
+
         } else {
             Ticket ticket = new Ticket(0, titulo, descripcion, comoRepetir, EstadoTicket.NUEVO);
             manager.guardarTicket(ticket);
+            Toast.makeText(getContext(), "Ticket registrado", Toast.LENGTH_SHORT).show();
 
             // limpiar campos
             txtTituloEdit.setText("");

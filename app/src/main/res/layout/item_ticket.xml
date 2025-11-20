@@ -36,6 +36,8 @@
                     android:id="@+id/Titulo"
                     android:layout_width="217dp"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:text="Titulo"
                     android:textColor="#000000" />
 
@@ -43,7 +45,9 @@
                     android:id="@+id/Descripcion"
                     android:layout_width="246dp"
                     android:layout_height="wrap_content"
-                    android:text="Descripcion" />
+                    android:text="Descripcion"
+                    android:ellipsize="end"
+                    android:maxLines="1"/>
 
             </LinearLayout>
         </LinearLayout>

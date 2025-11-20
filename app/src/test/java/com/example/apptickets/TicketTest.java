@@ -16,12 +16,12 @@ public class TicketTest {
 
     @Test
     public void testCrearTicket() {
-        Ticket ticket = new Ticket(1, "Titulo", "Descripcion", "Pasos", EstadoTicket.NUEVO);
+        Ticket ticket = new Ticket(1, "Titulo", "Descripcion", "ComoRepetir", EstadoTicket.NUEVO);
 
         assertEquals(1, ticket.getId());
         assertEquals("Titulo", ticket.getTitulo());
         assertEquals("Descripcion", ticket.getDescripcion());
-        assertEquals("Pasos", ticket.getComoRepetir());
+        assertEquals("ComoRepetir", ticket.getComoRepetir());
         assertEquals(EstadoTicket.NUEVO, ticket.getEstado());
     }
 
@@ -32,7 +32,7 @@ public class TicketTest {
         assertEquals(1, ticket.getId());
         assertEquals("Titulo", ticket.getTitulo());
         assertEquals("Descripcion", ticket.getDescripcion());
-        assertEquals("Pasos", ticket.getComoRepetir());
+        assertEquals("ComoRepetir", ticket.getComoRepetir());
         assertEquals(EstadoTicket.NUEVO, ticket.getEstado());
     }
 
