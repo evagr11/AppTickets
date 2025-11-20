@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class ListTickets extends Fragment {
 
     private Chip chipNuevo, chipAbierto, chipProceso, chipResuelto, chipCerrado;
-    private ListView listView;
     private TextView noTickets;
 
     private ArrayList<Ticket> listaTickets = new ArrayList<>();
@@ -43,7 +42,7 @@ public class ListTickets extends Fragment {
         chipCerrado = rootView.findViewById(R.id.chipCerrado);
         noTickets = rootView.findViewById(R.id.textView3);
 
-        listView = rootView.findViewById(R.id.listView);
+        ListView listView = rootView.findViewById(R.id.listView);
 
         cargarTicketsDesdeArchivos();
 
@@ -105,7 +104,7 @@ public class ListTickets extends Fragment {
 
                     EstadoTicket estado;
 
-                    switch (estadoStr.toUpperCase()) {
+                    switch (estadoStr) {
                         case "NUEVO": estado = EstadoTicket.NUEVO; break;
                         case "ABIERTO": estado = EstadoTicket.ABIERTO; break;
                         case "EN_PROCESO": estado = EstadoTicket.EN_PROCESO; break;

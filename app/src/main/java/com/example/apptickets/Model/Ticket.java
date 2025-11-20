@@ -25,6 +25,10 @@ public class Ticket {
 
     public EstadoTicket getEstado() { return estado; }
 
+    public void setEstado(EstadoTicket estado) {
+        this.estado = estado;
+    }
+
     @Override
     public String toString(){
         return titulo + " | " +

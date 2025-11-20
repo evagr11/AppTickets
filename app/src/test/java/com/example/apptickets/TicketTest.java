@@ -25,4 +25,15 @@ public class TicketTest {
         assertEquals(EstadoTicket.NUEVO, ticket.getEstado());
     }
 
+    @Test
+    public void testCrearTicketMal() {
+        Ticket ticket = new Ticket(1, "", "", "", EstadoTicket.NUEVO);
+
+        assertEquals(1, ticket.getId());
+        assertEquals("Titulo", ticket.getTitulo());
+        assertEquals("Descripcion", ticket.getDescripcion());
+        assertEquals("Pasos", ticket.getComoRepetir());
+        assertEquals(EstadoTicket.NUEVO, ticket.getEstado());
+    }
+
 }

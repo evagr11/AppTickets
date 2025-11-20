@@ -23,6 +23,7 @@
     <HorizontalScrollView
         android:layout_width="373dp"
         android:layout_height="46dp"
+        android:scrollbarSize="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -55,7 +56,7 @@
                 android:checkable="true"
                 android:text="Abierto"
                 android:textStyle="bold"
-                app:chipBackgroundColor="@color/estado_abierto"  />
+                app:chipBackgroundColor="@color/estado_abierto" />
 
             <Space
                 android:layout_width="5dp"
@@ -69,7 +70,7 @@
                 android:checkable="true"
                 android:text="En Proceso"
                 android:textStyle="bold"
-                app:chipBackgroundColor="@color/estado_enProceso"  />
+                app:chipBackgroundColor="@color/estado_enProceso" />
 
             <Space
                 android:layout_width="5dp"
@@ -83,7 +84,7 @@
                 android:checkable="true"
                 android:text="Resuelto"
                 android:textStyle="bold"
-                app:chipBackgroundColor="@color/estado_resuelto"  />
+                app:chipBackgroundColor="@color/estado_resuelto" />
 
             <Space
                 android:layout_width="5dp"
@@ -97,7 +98,7 @@
                 android:checkable="true"
                 android:text="Cerrado"
                 android:textStyle="bold"
-                app:chipBackgroundColor="@color/estado_cerrado"  />
+                app:chipBackgroundColor="@color/estado_cerrado" />
 
         </LinearLayout>
     </HorizontalScrollView>

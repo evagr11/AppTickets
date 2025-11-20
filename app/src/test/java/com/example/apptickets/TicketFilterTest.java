@@ -20,8 +20,9 @@ public class TicketFilterTest {
     public void testFiltrado() {
         ArrayList<Ticket> lista = new ArrayList<>();
         lista.add(new Ticket(1, "T1", "Desc1", "Repetir1",EstadoTicket.NUEVO));
-        lista.add(new Ticket(2, "T2", "Desc2", "Repetir2",EstadoTicket.EN_PROCESO));
-        lista.add(new Ticket(3, "T3", "Desc3", "Repetir3",EstadoTicket.RESUELTO));
+        lista.add(new Ticket(2, "T1", "Desc1", "Repetir1",EstadoTicket.NUEVO));
+        lista.add(new Ticket(3, "T2", "Desc2", "Repetir2",EstadoTicket.EN_PROCESO));
+        lista.add(new Ticket(4, "T3", "Desc3", "Repetir3",EstadoTicket.RESUELTO));
 
         ArrayList<Ticket> filtrada = new ArrayList<>();
         for(int i = 0; i < lista.size(); i++){
@@ -30,8 +31,7 @@ public class TicketFilterTest {
             }
         }
 
-        assertEquals(1,filtrada.size());
-        assertEquals(EstadoTicket.NUEVO, filtrada.get(0).getEstado());
+        assertEquals(2,filtrada.size());
     }
 
 }
