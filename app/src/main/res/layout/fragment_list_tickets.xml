@@ -41,6 +41,7 @@
                 android:layout_height="50dp"
                 android:checkable="true"
                 android:text="@string/nuevo"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:chipBackgroundColor="@color/estado_nuevo" />
 
@@ -54,6 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:checkable="true"
+                android:textColor="#FFFFFF"
                 android:text="@string/abierto"
                 android:textStyle="bold"
                 app:chipBackgroundColor="@color/estado_abierto" />
@@ -83,6 +85,7 @@
                 android:layout_height="50dp"
                 android:checkable="true"
                 android:text="@string/resuelto"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:chipBackgroundColor="@color/estado_resuelto" />
 
@@ -97,6 +100,7 @@
                 android:layout_height="50dp"
                 android:checkable="true"
                 android:text="@string/cerrado"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:chipBackgroundColor="@color/estado_cerrado" />
 

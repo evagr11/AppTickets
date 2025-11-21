@@ -7,9 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="estado_nuevo">#8BB4ED</color>
-    <color name="estado_abierto">#ffb27f</color>
-    <color name="estado_enProceso">#98df8a</color>
-    <color name="estado_resuelto">#ff9896</color>
-    <color name="estado_cerrado">#BE9AD9</color>
+    <color name="estado_nuevo">#0072B2</color>
+    <color name="estado_abierto">#009E73</color>
+    <color name="estado_enProceso">#E69F00</color>
+    <color name="estado_resuelto">#CC79A7</color>
+    <color name="estado_cerrado">#666666</color>
 </resources>
