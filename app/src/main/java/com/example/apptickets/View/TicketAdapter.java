@@ -13,12 +13,31 @@ import com.example.apptickets.R;
 
 import java.util.List;
 
+/**
+ * Adaptador personalizado para mostrar tickets en un {@link android.widget.ListView}.
+ *
+ * <p>Cada elemento muestra el título, la descripción, el ID del ticket y un indicador
+ * de color basado en el estado del ticket.</p>
+ *
+ * <p>Los colores se definen en los recursos de la aplicación (res/colors).</p>
+ */
 public class TicketAdapter extends ArrayAdapter<Ticket> {
 
     public TicketAdapter(Context context, List<Ticket> tickets) {
         super(context, 0, tickets);
     }
 
+    /**
+     * Genera la vista para cada elemento de la lista.
+     *
+     * <p>Infla el layout {@code item_ticket} y asigna los valores correspondientes.
+     * También setea el color del indicador según el estado del ticket.</p>
+     *
+     * @param position Posición del ticket en la lista.
+     * @param convertView Vista reciclada (puede ser null).
+     * @param parent Contenedor padre.
+     * @return Vista personalizada con los datos del ticket.
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View itemView = LayoutInflater.from(getContext()).inflate(R.layout.item_ticket, parent, false);

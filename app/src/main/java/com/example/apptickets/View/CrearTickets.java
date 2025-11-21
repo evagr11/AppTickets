@@ -22,6 +22,13 @@ import com.example.apptickets.ViewModel.TicketManager;
 import com.example.apptickets.Model.EstadoTicket;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+/**
+ * Fragmento que permite crear o editar tickets.
+ *
+ * <p>En modo edición, se muestran y cargan los campos preexistentes y se habilita
+ * el selector de estado. En modo creación, se guardan nuevos tickets con estado
+ * inicial {@link EstadoTicket#NUEVO}.</p>
+ */
 public class CrearTickets extends Fragment {
 
     private EditText txtTituloEdit, txtDescripcionEdit, txtComoRepetirEdit;
@@ -29,13 +36,23 @@ public class CrearTickets extends Fragment {
     private Button btnEnviar;
     private TextView txtEstado;
 
+    /** Identificador del ticket en modo edición. */
     private int ticketId = 0;
+    /** Indica si el fragmento se encuentra en modo edición. */
     private boolean esEdicion = false;
 
     public CrearTickets() {
         // Required empty public constructor
     }
 
+    /**
+     * Infla el layout del fragmento, inicializa los componentes y configura los listeners.
+     *
+     * @param inflater Inflador de vistas.
+     * @param container Contenedor padre.
+     * @param savedInstanceState Estado guardado del fragmento.
+     * @return Vista raíz del fragmento.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,6 +85,13 @@ public class CrearTickets extends Fragment {
 
     }
 
+    /**
+     * Guarda o actualiza un ticket según el modo actual (creación o edición).
+     *
+     * <p>Valida que los campos de texto no estén vacíos. En modo edición, actualiza
+     * el archivo del ticket y navega de vuelta a la lista. En modo creación, asigna
+     * un ID y estado nuevo, guarda el ticket y limpia los campos.</p>
+     */
     private void guardarTicket(){
         String titulo = txtTituloEdit.getText().toString().trim();
         String descripcion = txtDescripcionEdit.getText().toString().trim();

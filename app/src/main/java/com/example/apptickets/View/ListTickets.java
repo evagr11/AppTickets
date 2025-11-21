@@ -19,6 +19,12 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Fragmento que muestra la lista de tickets registrados.
+ *
+ * <p>Permite filtrar por estado mediante chips y abrir el formulario de edición
+ * al pulsar sobre un elemento de la lista.</p>
+ */
 public class ListTickets extends Fragment {
 
     private Chip chipNuevo, chipAbierto, chipProceso, chipResuelto, chipCerrado;
@@ -32,6 +38,15 @@ public class ListTickets extends Fragment {
 
     public ListTickets() {}
 
+    /**
+     * Infla el layout del fragmento, inicializa los componentes,
+     * carga los tickets desde archivos y configura el filtrado y la edición.
+     *
+     * @param inflater Inflador de vistas.
+     * @param container Contenedor padre.
+     * @param savedInstanceState Estado guardado del fragmento.
+     * @return Vista raíz del fragmento.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,6 +74,9 @@ public class ListTickets extends Fragment {
         return rootView;
     }
 
+    /**
+     * Configura los listeners de los chips para activar el filtrado dinámico.
+     */
     private void filtrado(){
         chipNuevo.setOnCheckedChangeListener((b, c) -> filtrar());
         chipAbierto.setOnCheckedChangeListener((b, c) -> filtrar());
@@ -67,6 +85,12 @@ public class ListTickets extends Fragment {
         chipCerrado.setOnCheckedChangeListener((b, c) -> filtrar());
     }
 
+    /**
+     * Configura el comportamiento de edición al hacer clic en un elemento de la lista.
+     *
+     * <p>Abre el fragmento {@link CrearTickets} con los datos del ticket seleccionado
+     * prellenados mediante un {@link android.os.Bundle}.</p>
+     */
     private void edicion(){
         listaFiltrada.addAll(listaTickets);
 
@@ -91,6 +115,12 @@ public class ListTickets extends Fragment {
         });
     }
 
+    /**
+     * Carga los tickets desde archivos locales en la carpeta "TICKETS".
+     *
+     * <p>Lee la primera línea de cada archivo y realiza parsing del contenido para
+     * construir objetos {@link Ticket}. Invierte el orden para mostrar el más reciente primero.</p>
+     */
     private void cargarTicketsDesdeArchivos() {
         listaTickets.clear();
         listaFiltrada.clear();
@@ -139,6 +169,12 @@ public class ListTickets extends Fragment {
         }
     }
 
+    /**
+     * Aplica el filtrado según los chips seleccionados.
+     *
+     * <p>Si no hay filtros seleccionados o están todos activos, se muestran todos los tickets.
+     * También actualiza la visibilidad del mensaje cuando la lista filtrada está vacía.</p>
+     */
     private void filtrar() {
 
         boolean filtroNuevo = chipNuevo.isChecked();
