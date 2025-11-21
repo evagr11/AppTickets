@@ -46,6 +46,10 @@ public class ListTickets extends Fragment {
         noTickets = rootView.findViewById(R.id.textView3);
         listView = rootView.findViewById(R.id.listView);
 
+
+        adapter = new TicketAdapter(getContext(), listaFiltrada);
+        listView.setAdapter(adapter);
+
         cargarTicketsDesdeArchivos();
 
         filtrado();
@@ -65,8 +69,6 @@ public class ListTickets extends Fragment {
 
     private void edicion(){
         listaFiltrada.addAll(listaTickets);
-        adapter = new TicketAdapter(getContext(), listaFiltrada);
-        listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Ticket seleccionado = listaFiltrada.get(position);

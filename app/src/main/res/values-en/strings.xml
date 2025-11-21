@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="iniciar">START</string>
+    <string name="t_tulo">Title</string>
+    <string name="descripci_n">Description</string>
+    <string name="estado">Status</string>
+    <string name="no_hay_tickets_disponibles">There are no tickets available</string>
+    <string name="cerrado">Closed</string>
+    <string name="resuelto">Result</string>
+    <string name="en_proceso">In process</string>
+    <string name="abierto">Open</string>
+    <string name="nuevo">New</string>
+    <string name="t_tulo_ticket">Ticket title</string>
+    <string name="descripci_n_ticket">Ticket description</string>
+    <string name="como_repetir_el_fallo">How to repeat the error</string>
+    <string name="estado_del_ticket">Ticket status</string>
+    <string name="t_tulo_ticket1">Ticket title</string>
+    <string name="descripci_n_ticket1">Ticket description</string>
+    <string name="como_repetir_el_fallo1">How to repeat the error</string>
+    <string name="enviar">send</string>
+    <string name="titulo">Title</string>
+    <string name="descripcion">Description</string>
+    <string name="tickets">Tickets</string>
+</resources>

@@ -1,8 +1,29 @@
 <resources>
-    <string name="app_name">AppTickets</string>
+    <string name="app_name" translatable="false">AppTickets</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="iniciar">INICIAR</string>
+    <string name="t_tulo">Título</string>
+    <string name="descripci_n">Descripción</string>
+    <string name="estado">Estado</string>
+    <string name="id" translatable="false">ID</string>
+    <string name="no_hay_tickets_disponibles">No hay tickets disponibles</string>
+    <string name="cerrado">Cerrado</string>
+    <string name="resuelto">Resuelto</string>
+    <string name="en_proceso">En Proceso</string>
+    <string name="abierto">Abierto</string>
+    <string name="nuevo">Nuevo</string>
+    <string name="t_tulo_ticket">Título ticket</string>
+    <string name="descripci_n_ticket">Descripción ticket</string>
+    <string name="como_repetir_el_fallo">Como repetir el fallo</string>
+    <string name="estado_del_ticket">Estado del ticket</string>
+    <string name="t_tulo_ticket1">Título ticket</string>
+    <string name="descripci_n_ticket1">Descripción ticket</string>
+    <string name="como_repetir_el_fallo1">Como repetir el fallo</string>
+    <string name="enviar">enviar</string>
+    <string name="titulo">Titulo</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="id1" translatable="false">ID</string>
+    <string name="tickets">Tickets</string>
     <string-array name="estados_legibles">
         <item>Nuevo</item>
         <item>Abierto</item>

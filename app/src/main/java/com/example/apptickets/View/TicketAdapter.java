@@ -21,8 +21,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View itemView = LayoutInflater.from(getContext())
-                .inflate(R.layout.item_ticket, parent, false);
+        View itemView = LayoutInflater.from(getContext()).inflate(R.layout.item_ticket, parent, false);
 
         Ticket ticket = getItem(position);
 

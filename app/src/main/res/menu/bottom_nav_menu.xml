@@ -2,9 +2,9 @@
     <item
         android:id="@+id/nav_list"
         android:icon="@mipmap/lista"
-        android:title="Tickets" />
+        android:title="@string/tickets" />
     <item
         android:id="@+id/nav_redaccion"
         android:icon="@mipmap/editar"
-        android:title="Crear" />
+        android:title="@string/nuevo" />
 </menu>

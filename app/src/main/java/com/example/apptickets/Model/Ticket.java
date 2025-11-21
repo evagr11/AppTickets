@@ -2,9 +2,7 @@ package com.example.apptickets.Model;
 
 public class Ticket {
     private int id;
-    private String titulo;
-    private String descripcion;
-    private String comoRepetir;
+    private String titulo, descripcion, comoRepetir;
     private EstadoTicket estado;
 
     public Ticket(int id, String titulo, String descripcion, String comoRepetir, EstadoTicket estado) {

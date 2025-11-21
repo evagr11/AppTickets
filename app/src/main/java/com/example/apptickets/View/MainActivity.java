@@ -28,12 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         TicketManager manager = new TicketManager(this);
 
-        // Borrar todos los tickets
-        //manager.borrarTickets();
-
-        // 5 tickets
-        //manager.crearTicketsEjemplo();
-
         fragmentCrear = new CrearTickets();
         fragmentList = new ListTickets();
         fragmentLanding = new Landing();
@@ -58,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
+    }
 
+    public void CambiarFragmento(){
+        FragmentTransaction editTransaction = getSupportFragmentManager().beginTransaction();
+        editTransaction.replace(R.id.fragmentContainerTickets, fragmentList);
+        editTransaction.commit();
     }
 }

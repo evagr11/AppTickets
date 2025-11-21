@@ -3,6 +3,8 @@ package com.example.apptickets.View;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainerView;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.example.apptickets.R;
 import com.example.apptickets.Model.Ticket;
 import com.example.apptickets.ViewModel.TicketManager;
 import com.example.apptickets.Model.EstadoTicket;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CrearTickets extends Fragment {
 
@@ -83,6 +86,11 @@ public class CrearTickets extends Fragment {
             manager.actualizarTicket(ticket);
             Toast.makeText(getContext(), "Ticket editado correctamente", Toast.LENGTH_SHORT).show();
 
+            MainActivity activity = (MainActivity)getActivity();
+            activity.CambiarFragmento();
+
+
+
         } else {
             Ticket ticket = new Ticket(0, titulo, descripcion, comoRepetir, EstadoTicket.NUEVO);
             manager.guardarTicket(ticket);
@@ -94,6 +102,7 @@ public class CrearTickets extends Fragment {
             txtComoRepetirEdit.setText("");
             spinnerEstado.setSelection(0);
         }
+
 
 
 
