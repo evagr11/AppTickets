@@ -24,7 +24,7 @@
         android:layout_width="363dp"
         android:layout_height="36dp"
         android:fontFamily="sans-serif-black"
-        android:text="Rellene la información"
+        android:text="@string/rellene_la_informacion"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"

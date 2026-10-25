@@ -24,6 +24,7 @@
     <string name="descripcion">Descripcion</string>
     <string name="id1" translatable="false">ID</string>
     <string name="tickets">Tickets</string>
+    <string name="rellene_la_informacion">Rellene la información</string>
     <string-array name="estados_legibles">
         <item>Nuevo</item>
         <item>Abierto</item>

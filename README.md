@@ -3,11 +3,11 @@
 </div>
 
 <div align="center">
-  <a href="https://github.com/evagr11/AppTickets">
+  <a href="https://github.com/evagr11/AppTickets" target="_blank">
     <img src="https://img.shields.io/badge/Ver_Código-10B981?style=for-the-badge&logo=github&logoColor=white" alt="Ver Código">
   </a>
-  <a href="https://evagr11.github.io/Curriculum/proyectos/app-tickets.html">
-    <img src="https://img.shields.io/badge/Ver_Web-0F3D2E?style=for-the-badge&logo=webr&logoColor=white" alt="Ver Web">
+  <a href="https://evagr11.github.io/Curriculum/proyectos/app-tickets.html" target="_blank">
+    <img src="https://img.shields.io/badge/Ver_Web-0F3D2E?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Ver Web">
   </a>
 </div>
 
@@ -19,7 +19,7 @@
 
 # 🚀 Sobre el Proyecto
 
-**App Tickets** es una aplicación móvil nativa para Android diseñada para la **gestión de incidencias y tickets de soporte**. Permite a los usuarios crear, editar, consultar y filtrar tickets de manera eficiente, con toda la información persistida localmente en el dispositivo.
+**App Tickets** es una aplicación móvil nativa para Android diseñada para la **gestión de incidencias y tickets de soporte**. Permite a los usuarios crear, editar, consultar y filtrar tickets de manera eficiente, con toda la información persistida localmente en el dispositivo y sin necesidad de conexión.
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/1d2c888d-9f6e-48cd-8479-06772db40317" alt="Mockup de la app de tickets" width="70%"/>
@@ -31,8 +31,26 @@
 *   📱 **Gestión de Tickets:** Permite crear nuevos tickets con título, descripción y pasos para reproducir el fallo. Los tickets existentes pueden ser editados para actualizar su información o cambiar su estado.
 *   💾 **Persistencia Local:** Los tickets se guardan como archivos de texto en el almacenamiento interno de la aplicación, asegurando que los datos no se pierdan al cerrar la app.
 *   🔍 **Filtrado por Estado:** Un sistema de `Chips` interactivos permite al usuario filtrar la lista de tickets por su estado: `Nuevo`, `Abierto`, `En proceso`, `Resuelto` o `Cerrado`.
-*   ♿ **Diseño Accesible:** La paleta de colores para los indicadores de estado fue seleccionada cuidadosamente para ser **distinguible por personas con daltonismo**, cumpliendo con pautas de contraste y usabilidad.
+*   ♿ **Diseño Accesible:** Los colores de cada estado siguen la paleta **Okabe-Ito**, pensada para ser **distinguible por personas con daltonismo**, cumpliendo con pautas de contraste y usabilidad.
+*   🌍 **Bilingüe:** Todos los textos están en `strings.xml`, con versión en **español** y en **inglés**. La app se muestra en el idioma del dispositivo.
+*   🌙 **Modo Oscuro:** Tema propio para el modo noche (`values-night`).
+*   🧪 **Tests Unitarios:** Pruebas con **JUnit** para la creación de tickets, el cambio de estado y el filtrado.
 *   📚 **Documentación Completa:** El proyecto está acompañado de una detallada documentación técnica desarrollada en **LaTeX**.
+
+<div align="center">
+
+| Estado | Color |
+| :----- | :---: |
+| `Nuevo` | <img src="https://img.shields.io/badge/-%230072B2-0072B2?style=for-the-badge" alt="Azul #0072B2"/> |
+| `Abierto` | <img src="https://img.shields.io/badge/-%23009E73-009E73?style=for-the-badge" alt="Verde #009E73"/> |
+| `En proceso` | <img src="https://img.shields.io/badge/-%23E69F00-E69F00?style=for-the-badge" alt="Naranja #E69F00"/> |
+| `Resuelto` | <img src="https://img.shields.io/badge/-%23CC79A7-CC79A7?style=for-the-badge" alt="Rosa #CC79A7"/> |
+| `Cerrado` | <img src="https://img.shields.io/badge/-%23666666-666666?style=for-the-badge" alt="Gris #666666"/> |
+
+<p><em>Paleta de estados apta para daltonismo.</em></p>
+</div>
+
+### Galería de Funcionalidades
 
 | Pantalla Principal                                                                                      | Creación de Ticket                                                                      |
 | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
@@ -53,16 +71,22 @@ Este proyecto fue desarrollado como parte de las asignaturas **Desarrollo de Int
   <img src="https://img.shields.io/badge/STATUS-Estable-10B981?style=for-the-badge" alt="Status">
 </div>
 
-  | Componente      | Tecnología Utilizada                                                                           |
-  | --------------- | ---------------------------------------------------------------------------------------------- |
-  | **Plataforma**  | `Android Nativo`                                                                               |
-  | **Lenguaje**    | `Java 11`                                                                                      |
-  | **Build Tool**  | `Gradle`                                                                                       |
-  | **UI**          | `XML Layouts`, `Fragments`, `Material Components` (Chips, BottomNavigationView)                |
-  | **Librerías**   | `AndroidX` (AppCompat, ConstraintLayout, Fragment)                                             |
-  | **Persistencia**| `Sistema de archivos interno`                                                                    |
-  | **Documentación**| `LaTeX`                                                                                        |
+<br>
 
+<div align="center">
+
+| Componente | Tecnología Utilizada |
+| :--------- | :------------------- |
+| **Plataforma** | `Android Nativo` (minSdk 24 · targetSdk 36) |
+| **Lenguaje** | `Java 11` |
+| **Build Tool** | `Gradle` (Kotlin DSL) |
+| **UI** | `XML Layouts`, `Fragments`, `Material Components` (Chips, BottomNavigationView) |
+| **Librerías** | `AndroidX` (AppCompat, ConstraintLayout, Fragment) |
+| **Persistencia** | `Sistema de archivos interno` (`getFilesDir()` + `FileWriter`) |
+| **Tests** | `JUnit 4` |
+| **Documentación** | `LaTeX` |
+
+</div>
 
 # 📂 Estructura del Proyecto
 
@@ -80,9 +104,13 @@ AppTickets/
 │   │   │   │   └── ViewModel/        # Lógica de negocio (TicketManager)
 │   │   │   ├── res/
 │   │   │   │   ├── layout/           # Diseños de pantalla (XML)
-│   │   │   │   ├── values/           # Colores, strings, temas
+│   │   │   │   ├── values/           # Colores, strings y temas (español)
+│   │   │   │   ├── values-en/        # Strings en inglés
+│   │   │   │   ├── values-night/     # Tema para el modo oscuro
+│   │   │   │   ├── menu/             # Menú de navegación inferior
 │   │   │   │   └── drawable/         # Recursos gráficos
 │   │   │   └── AndroidManifest.xml   # Configuración principal de la app
+│   │   └── test/                     # Tests unitarios (JUnit)
 │   └── .gitignore
 ├── build.gradle.kts                  # Configuración del proyecto
 └── gradlew                           # Wrapper de Gradle
@@ -109,7 +137,18 @@ Para clonar y ejecutar este proyecto, necesitarás tener **Android Studio** y el
     *   Selecciona un emulador de Android o conecta un dispositivo físico.
     *   Haz clic en el botón `Run 'app'` (icono de play verde) en la barra de herramientas superior.
 
-</br>
+5.  **Ejecuta los tests (opcional):**
+    *   Desde Android Studio: clic derecho en la carpeta `app/src/test` > `Run 'Tests in...'`.
+    *   O desde la terminal, en la raíz del proyecto:
+    ```bash
+    # Windows
+    gradlew.bat test
+
+    # macOS / Linux
+    ./gradlew test
+    ```
+
+<br>
 
 <div align="center">
   <p>Creado por <strong>Eva Gallardo</strong></p>

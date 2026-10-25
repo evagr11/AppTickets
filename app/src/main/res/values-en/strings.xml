@@ -21,4 +21,12 @@
     <string name="titulo">Title</string>
     <string name="descripcion">Description</string>
     <string name="tickets">Tickets</string>
+    <string name="rellene_la_informacion">Fill in the information</string>
+    <string-array name="estados_legibles">
+        <item>New</item>
+        <item>Open</item>
+        <item>In progress</item>
+        <item>Resolved</item>
+        <item>Closed</item>
+    </string-array>
 </resources>
